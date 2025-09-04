@@ -1,0 +1,53 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #001D3D;
+    color: #F5D04C;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.rowOne {
+    display: flex;
+    padding: 10px;
+}
+
+.rowThree {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
+    font-size: 5px;
+}
+
+.symbolSelect {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: auto;
+    align-items: flex-start;
+}
+
+.symbolsRowOne {
+    display: flex;
+    gap: 5px;
+}
+
+.symbols, .restartBtn {
+    color: #F5D04C;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 0;
+}
+
+.symbols:hover, .restartBtn:hover
+{
+    color: #EDEDED;
+}
+

@@ -1,20 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
 
-function getComputerChoice()
-{
-    let choice = Math.floor(Math.random()*3);
-    return choice;
-}
-
-function getHumanChoice()
-{
-    let choice = prompt("What is your choice?");
-    return choice;
-}
-
 function playRound(computerSelection, humanSelection)
 {
+    const roundWinner = document.createElement("p");
     if(humanSelection == "rock") humanSelection = 0;
     else if(humanSelection == "paper") humanSelection = 1;
     else humanSelection = 2;
@@ -22,69 +11,84 @@ function playRound(computerSelection, humanSelection)
     {
         if(computerSelection==1)
         {
-            console.log("Computer win!");
+            roundWinner.textContent = "You chose rock. Computer chose paper. You lose.";
+            results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==2)
         {
-            console.log("Human win!");
+            roundWinner.textContent = "You chose rock. Computer chose scissors. You win.";
+            results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            console.log("Draw!");
+            roundWinner.textContent = "Draw.";
+            results.append(roundWinner);
         }
     }
     else if(humanSelection==1)
     {
         if(computerSelection==2)
         {
-            console.log("Computer win!");
+            roundWinner.textContent = "You chose paper. Computer chose scissors. You lose.";
+            results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==0)
         {
-            console.log("Human win!");
+            roundWinner.textContent = "You chose paper. Computer chose rock. You win.";
+            results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            console.log("Draw!");
+            roundWinner.textContent = "Draw.";
+            results.append(roundWinner);
         }
     }
     else 
     {
         if(computerSelection==0)
         {
-            console.log("Computer win!");
+            roundWinner.textContent = "You chose scissors. Computer chose rock. You lose.";
+            results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==1)
         {
-            console.log("Human win!");
+            roundWinner.textContent = "You chose scissors. Computer chose paper. You win.";
+            results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            console.log("Draw!");
+            roundWinner.textContent = "Draw.";
+            results.append(roundWinner);
         }
     }
 }
 
-function playGame()
-{
-    let rounds = prompt("How many rounds do you want to play?");
-    parseInt(rounds);
-    let i;
-    for(i=1; i<=rounds; i++)
-    {
-    console.log("Round "+ i + ":");
-    const computerSelection = getComputerChoice();
-    const humanSelection = getHumanChoice().toLowerCase();
-    playRound(computerSelection, humanSelection);
-    console.log("Human score: " + humanScore);
-    console.log("Computer score: " + computerScore);
-    }
-}
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
+const choiceBtn = [rockBtn, paperBtn, scissorsBtn];
+const results = document.createElement("div");
+results.style.fontSize = "5px";
+results.style.textAlign = "center";
+const score = document.createElement("p");
+document.getElementsByClassName("rowTwo")[0].append(results);
+document.getElementsByClassName("scoreTable")[0].append(score);
+score.style.display="none";
+let clicked = false;
 
-playGame();
+if(clicked)
+{
+    score.textContent=computerScore + "-" + humanScore;
+    score.style.display="block";
+}
+choiceBtn.forEach(btn => btn.addEventListener("click", () => { 
+    playRound(Math.floor(Math.random()*3), btn.id)
+    clicked = true;
+}));
+
