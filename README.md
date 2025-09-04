@@ -1,1 +1,1 @@
-# CLI-RockPaperScissors
+# jsRockPaperScissors
