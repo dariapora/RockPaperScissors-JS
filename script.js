@@ -112,7 +112,7 @@ restartBtn.addEventListener("click", () =>
     humanPic.style.display="inline";
     computerPic.style.display="inline";
     score.style.visibility="hidden";
-    howTo.style.display="block";
+    howTo.classList.remove("hidden");
 })
 
 choiceBtn.forEach(btn => btn.addEventListener("click", () => {
@@ -124,7 +124,7 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
     } 
     playRound(Math.floor(Math.random()*3), btn.id); 
     round++;
-    howTo.style.display="none";
+    howTo.classList.add("hidden");
     if(round==1)
     {
         restartBtn.textContent = "restart";
