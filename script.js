@@ -4,13 +4,26 @@ let computerScore = 0;
 function playRound(computerSelection, humanSelection)
 {
     const roundWinner = document.createElement("p");
-    if(humanSelection == "rock") humanSelection = 0;
-    else if(humanSelection == "paper") humanSelection = 1;
-    else humanSelection = 2;
+    if(humanSelection == "rock") 
+    { humanSelection = 0;
+        humanPic.src="rock.png";
+    }
+    else if(humanSelection == "paper") 
+    {humanSelection = 1;
+        humanPic.src="paper.png";
+    }
+    else
+    { humanSelection = 2;
+        humanPic.src="scissors.png";
+    }
+    if(computerSelection==0) computerPic.src="rock.png";
+    else if(computerSelection==1) computerPic.src="paper.png";
+    else computerPic.src="scissors.png";
     if(humanSelection==0)
     {
         if(computerSelection==1)
         {
+
             roundWinner.textContent = "You chose rock. Computer chose paper. You lose.";
             results.append(roundWinner);
             computerScore++;
@@ -67,28 +80,84 @@ function playRound(computerSelection, humanSelection)
             results.append(roundWinner);
         }
     }
+    console.log(round);
 }
 
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
+const restartBtn = document.getElementById("restart");
+const humanPic = document.getElementById("hPic");
+const computerPic = document.getElementById("cPic");
 const choiceBtn = [rockBtn, paperBtn, scissorsBtn];
-const results = document.createElement("div");
-results.style.fontSize = "5px";
-results.style.textAlign = "center";
-const score = document.createElement("p");
-document.getElementsByClassName("rowTwo")[0].append(results);
-document.getElementsByClassName("scoreTable")[0].append(score);
-score.style.display="none";
-let clicked = false;
 
-if(clicked)
+const results = document.getElementById("results");
+const score = document.getElementById("score");
+
+const winner = document.createElement("p");
+winner.style.fontSize = "10px";
+winner.style.fontWeight = "bold";
+let round=0;
+
+
+restartBtn.addEventListener("click", () => 
 {
-    score.textContent=computerScore + "-" + humanScore;
-    score.style.display="block";
-}
-choiceBtn.forEach(btn => btn.addEventListener("click", () => { 
-    playRound(Math.floor(Math.random()*3), btn.id)
-    clicked = true;
+    round=0;
+    results.innerHTML="";
+    choiceBtn.forEach(btn => {btn.style.visibility="visible"});
+    restartBtn.style.visibility="hidden";
+    computerPic.src="noSelection.png"
+    humanPic.src="noSelection.png"
+    humanPic.style.display="inline";
+    computerPic.style.display="inline";
+    score.style.visibility="hidden";
+})
+
+choiceBtn.forEach(btn => btn.addEventListener("click", () => {
+    if(!round)
+    {
+        humanScore=0;
+        computerScore=0;
+        score.style.visibility="hidden";
+    } 
+    playRound(Math.floor(Math.random()*3), btn.id); 
+    round++;
+    if(round==1)
+    {
+        restartBtn.textContent = "restart";
+        restartBtn.style.visibility="visible";
+    }
+    if(round==5)
+    {
+        computerPic.src="noSelection.png"
+        humanPic.style.display="none";
+        computerPic.style.display="none";
+        if(humanScore>computerScore) 
+            {
+                winner.textContent="you win.";
+                results.append(winner);
+                choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
+            }
+            else if(humanScore<computerScore)
+            {
+                winner.textContent="you lose.";
+                results.append(winner);
+                choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
+            }
+            else
+            {
+                winner.textContent="draw.";
+                results.append(winner);
+                choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
+            }
+        restartBtn.textContent = "play again";
+        restartBtn.style.visibility="visible";
+    }
+    score.textContent=humanScore + "-" + computerScore;
+    score.style.visibility="visible";
 }));
+
+choiceBtn.forEach(btn => btn.addEventListener("mouseenter", () => {
+    humanPic.src=btn.id+".png";
+}))
 
