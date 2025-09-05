@@ -24,19 +24,19 @@ function playRound(computerSelection, humanSelection)
         if(computerSelection==1)
         {
 
-            roundWinner.textContent = "You chose rock. Computer chose paper. You lose.";
+            roundWinner.textContent = "you chose rock, computer chose paper. you lose.";
             results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==2)
         {
-            roundWinner.textContent = "You chose rock. Computer chose scissors. You win.";
+            roundWinner.textContent = "you chose rock, computer chose scissors. you win.";
             results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            roundWinner.textContent = "Draw.";
+            roundWinner.textContent = "draw.";
             results.append(roundWinner);
         }
     }
@@ -44,19 +44,19 @@ function playRound(computerSelection, humanSelection)
     {
         if(computerSelection==2)
         {
-            roundWinner.textContent = "You chose paper. Computer chose scissors. You lose.";
+            roundWinner.textContent = "you chose paper, computer chose scissors. you lose.";
             results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==0)
         {
-            roundWinner.textContent = "You chose paper. Computer chose rock. You win.";
+            roundWinner.textContent = "you chose paper, computer chose rock. you win.";
             results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            roundWinner.textContent = "Draw.";
+            roundWinner.textContent = "draw.";
             results.append(roundWinner);
         }
     }
@@ -64,19 +64,19 @@ function playRound(computerSelection, humanSelection)
     {
         if(computerSelection==0)
         {
-            roundWinner.textContent = "You chose scissors. Computer chose rock. You lose.";
+            roundWinner.textContent = "you chose scissors, computer chose rock. you lose.";
             results.append(roundWinner);
             computerScore++;
         }
         else if(computerSelection==1)
         {
-            roundWinner.textContent = "You chose scissors. Computer chose paper. You win.";
+            roundWinner.textContent = "you chose scissors, computer chose paper. you win.";
             results.append(roundWinner);
             humanScore++;
         }
         else 
         {
-            roundWinner.textContent = "Draw.";
+            roundWinner.textContent = "draw.";
             results.append(roundWinner);
         }
     }
@@ -93,6 +93,7 @@ const choiceBtn = [rockBtn, paperBtn, scissorsBtn];
 
 const results = document.getElementById("results");
 const score = document.getElementById("score");
+const howTo = document.getElementById("howTo");
 
 const winner = document.createElement("p");
 winner.style.fontSize = "4rem";
@@ -111,6 +112,7 @@ restartBtn.addEventListener("click", () =>
     humanPic.style.display="inline";
     computerPic.style.display="inline";
     score.style.visibility="hidden";
+    howTo.style.display="block";
 })
 
 choiceBtn.forEach(btn => btn.addEventListener("click", () => {
@@ -122,6 +124,7 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
     } 
     playRound(Math.floor(Math.random()*3), btn.id); 
     round++;
+    howTo.style.display="none";
     if(round==1)
     {
         restartBtn.textContent = "restart";
@@ -134,19 +137,19 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
         computerPic.style.display="none";
         if(humanScore>computerScore) 
             {
-                winner.textContent="you win.";
+                winner.textContent="you win :)";
                 results.append(winner);
                 choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
             }
             else if(humanScore<computerScore)
             {
-                winner.textContent="you lose.";
+                winner.textContent="you lose :(";
                 results.append(winner);
                 choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
             }
             else
             {
-                winner.textContent="draw.";
+                winner.textContent="draw :/";
                 results.append(winner);
                 choiceBtn.forEach(btn => {btn.style.visibility="hidden"});
             }

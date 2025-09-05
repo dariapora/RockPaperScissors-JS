@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROCK PAPER SCISSORS</title>
+    <title>rock paper scissors</title>
     <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="rowOne">
             <div class="symbolSelect">
                 <div class="symbolsRowOne">
-                 <button class="symbols" id="rock">ROCK</button>
-                 <button class="symbols" id="paper">PAPER</button>
+                 <button class="symbols" id="rock">rock</button>
+                 <button class="symbols" id="paper">paper</button>
                 </div>
-            <button class="symbols" id="scissors">SCISSORS</button>
+            <button class="symbols" id="scissors">scissors</button>
             </div>
             <div class="restartGame">
             <button id="restart">restart</button>
@@ -32,7 +35,8 @@
             <div id="results"></div>
         </div>
         <div class="rowThree">
-            <p id="score">h</p>
+            <p id="score"></p>
+            <p id="howTo" style="font-size: 1rem;">use your mouse to select a symbol from the top-left corner.</p>
         </div>
     </div>
     <script src="script.js"></script>
