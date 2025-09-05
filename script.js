@@ -6,19 +6,19 @@ function playRound(computerSelection, humanSelection)
     const roundWinner = document.createElement("p");
     if(humanSelection == "rock") 
     { humanSelection = 0;
-        humanPic.src="rock.png";
+        humanPic.src="img/rock.png";
     }
     else if(humanSelection == "paper") 
     {humanSelection = 1;
-        humanPic.src="paper.png";
+        humanPic.src="img/paper.png";
     }
     else
     { humanSelection = 2;
-        humanPic.src="scissors.png";
+        humanPic.src="img/scissors.png";
     }
-    if(computerSelection==0) computerPic.src="rock.png";
-    else if(computerSelection==1) computerPic.src="paper.png";
-    else computerPic.src="scissors.png";
+    if(computerSelection==0) computerPic.src="img/rock.png";
+    else if(computerSelection==1) computerPic.src="img/paper.png";
+    else computerPic.src="img/scissors.png";
     if(humanSelection==0)
     {
         if(computerSelection==1)
@@ -106,8 +106,8 @@ restartBtn.addEventListener("click", () =>
     results.innerHTML="";
     choiceBtn.forEach(btn => {btn.style.visibility="visible"});
     restartBtn.style.visibility="hidden";
-    computerPic.src="noSelection.png"
-    humanPic.src="noSelection.png"
+    computerPic.src="img/noSelection.png"
+    humanPic.src="img/noSelection.png"
     humanPic.style.display="inline";
     computerPic.style.display="inline";
     score.style.visibility="hidden";
@@ -129,7 +129,7 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
     }
     if(round==5)
     {
-        computerPic.src="noSelection.png"
+        computerPic.src="img/noSelection.png"
         humanPic.style.display="none";
         computerPic.style.display="none";
         if(humanScore>computerScore) 
@@ -158,6 +158,6 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 choiceBtn.forEach(btn => btn.addEventListener("mouseenter", () => {
-    humanPic.src=btn.id+".png";
+    humanPic.src="img/"+btn.id+".png";
 }))
 
