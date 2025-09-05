@@ -14,7 +14,7 @@ body {
 
 .rowOne {
     display: flex;
-    padding: 5px;
+    padding: 5vh;
 }
 
 .rowTwo
@@ -26,12 +26,13 @@ body {
 .selectPic {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10vh;
 }
 
 img {
-    width: 50px;
-    height: 50px;
+    width: 15vh;
+    height: 15vh;
+    padding: 4vh;
 }
 
 .rowThree {
@@ -39,8 +40,8 @@ img {
     justify-content: center;
     align-items: flex-end;
     margin-top: auto;
-    font-size: 5px;
-    padding-bottom: 3px;
+    font-size: 3rem;
+    padding-bottom: 3vh;
 }
 
 .symbolSelect {
@@ -53,11 +54,12 @@ img {
 
 .symbolsRowOne {
     display: flex;
-    gap: 5px;
+    gap: 1vh;
 }
 
 .symbols, #restart {
     color: #F5D04C;
+    font-size: 3rem;
     border: none;
     background-color: transparent;
     font-weight: bold;
@@ -77,6 +79,7 @@ img {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    font-size: 5px;
+    font-weight: 500;
+    font-size: 1.5rem;
     line-height: 0;
 }

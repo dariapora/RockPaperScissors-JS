@@ -95,7 +95,7 @@ const results = document.getElementById("results");
 const score = document.getElementById("score");
 
 const winner = document.createElement("p");
-winner.style.fontSize = "10px";
+winner.style.fontSize = "4rem";
 winner.style.fontWeight = "bold";
 let round=0;
 
@@ -160,4 +160,3 @@ choiceBtn.forEach(btn => btn.addEventListener("click", () => {
 choiceBtn.forEach(btn => btn.addEventListener("mouseenter", () => {
     humanPic.src="img/"+btn.id+".png";
 }))
-
