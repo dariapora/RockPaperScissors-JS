@@ -1,5 +1,5 @@
 # Rock Paper Scissors
-This repository contains my solution for the [Rock Paper Scissors assignment](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors) of TOP Foundations, and it also serves as my introduction to DOM Manipulation. :game_die:
+This repository contains my solution for the [Rock Paper Scissors assignment](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors) of TOP Foundations, and it also serves as my introduction to DOM Manipulation. 
 
 ## What I Learned
 **Selecting elements** – Used getElementById() to work with buttons, scores, and images.\
